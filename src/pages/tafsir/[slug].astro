@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import TafsirLayout from '../../layouts/TafsirLayout.astro';
+import TafsirSection from '../../components/tafsir/TafsirSection.astro';
+import FullTextSection from '../../components/tafsir/FullTextSection.astro';
+import Divider from '../../components/ui/Divider.astro';
+
+/**
+ * صفحة تفسير واحدة. تُبنى تلقائيًا لكل مجلد في src/content/tafsir/.
+ * أجزاء المحتوى تُحمَّل من summary.mdx / topics.mdx / full-text.mdx.
+ */
+export async function getStaticPaths() {
+  const entries = await getCollection('tafsir');
+  return entries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { page: entry.data },
+  }));
+}
+
+const { page } = Astro.props;
+
+// تحميل أجزاء المحتوى لكل الصفحات ثم اختيار ما يخص هذه الصفحة
+const summaries = import.meta.glob('../../content/tafsir/*/summary.mdx');
+const topics = import.meta.glob('../../content/tafsir/*/topics.mdx');
+const fullTexts = import.meta.glob('../../content/tafsir/*/full-text.mdx');
+
+async function load(map: Record<string, () => Promise<any>>, slug: string) {
+  const key = Object.keys(map).find((k) => k.includes(`/${slug}/`));
+  if (!key) return null;
+  const mod = await map[key]();
+  return mod.default as any;
+}
+
+const has = (name: string) => page.sections.includes(name);
+const Summary = has('summary') ? await load(summaries, page.slug) : null;
+const Topics = has('topics') ? await load(topics, page.slug) : null;
+const FullText = has('full-text') ? await load(fullTexts, page.slug) : null;
+
+/** عنوان القسم يأتي من `parts` وليس من تسميات شريط التنقل (قد تختلفان). */
+const label = (id: string, fallback: string) => page.parts?.[id] ?? fallback;
+const legacyOf = (id: string) =>
+  page.anchors.find((a: any) => a.id === id)?.legacy ?? [];
+---
+<TafsirLayout page={page}>
+  {Summary && (
+    <TafsirSection id="part-1" title={label('part-1', 'مختصر التفسير')} legacy={legacyOf('part-1')}>
+      <Summary />
+    </TafsirSection>
+  )}
+
+  {Summary && Topics && <Divider />}
+
+  {Topics && (
+    <TafsirSection id="part-2" title={label('part-2', 'التصنيف الموضوعي')} legacy={legacyOf('part-2')}>
+      <Topics />
+    </TafsirSection>
+  )}
+
+  {Topics && FullText && <Divider />}
+
+  {FullText && (
+    <FullTextSection id="part-3" title={label('part-3', 'النص كاملًا')} legacy={legacyOf('part-3')}>
+      <FullText />
+    </FullTextSection>
+  )}
+</TafsirLayout>

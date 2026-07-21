@@ -1,0 +1,6 @@
+---
+/** اقتباس قرآني/نبوي داخل السطر. */
+interface Props { tone?: 'red' | 'blue' | 'main'; size?: 'lg' | 'inherit' }
+const { tone = 'red', size = 'lg' } = Astro.props;
+---
+<span class="ayah" data-tone={tone} data-size={size}><slot /></span>

@@ -1,0 +1,5 @@
+---
+interface Props { as?: string; class?: string }
+const { as: Tag = 'div', class: cls = '' } = Astro.props;
+---
+<Tag class={`container ${cls}`.trim()}><slot /></Tag>

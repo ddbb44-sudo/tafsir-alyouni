@@ -1,0 +1,20 @@
+---
+import ReaderControls from '../reader/ReaderControls.astro';
+import InternalPageNav from '../reader/InternalPageNav.astro';
+
+/** الشريط العلوي المشترك لكل الصفحات. عدّله هنا فقط. */
+interface Props {
+  title: string;
+  anchors?: { id: string; label: string }[];
+  showDetailsToggle?: boolean;
+  showCopy?: boolean;
+}
+const { title, anchors = [], showDetailsToggle = false, showCopy = false } = Astro.props;
+---
+<header class="glass-header">
+  <div class="header-bar">
+    <p class="header-title">{title}</p>
+    <ReaderControls showDetailsToggle={showDetailsToggle} showCopy={showCopy} />
+  </div>
+  {anchors.length > 0 && <InternalPageNav anchors={anchors} />}
+</header>

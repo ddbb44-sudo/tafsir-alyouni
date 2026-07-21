@@ -1,0 +1,80 @@
+/* ==========================================================================
+   tokens.css — المصدر الوحيد لكل الألوان والمقاسات والمسافات
+   --------------------------------------------------------------------------
+   غيّر اللون أو الحجم هنا فقط. لا تكتب ألوانًا مباشرة داخل أي مكوّن.
+   القيم منقولة حرفيًا من صفحات التفسير الأصلية للحفاظ على الشكل نفسه.
+   ========================================================================== */
+
+:root {
+  /* ── الألوان (الوضع النهاري — Apple Editorial) ───────────────────── */
+  --bg-body: #fbfbfd;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-card: #ffffff;
+  --text-main: #1d1d1f;
+  --text-secondary: #86868b;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --quran-red: #c0392b;
+  --quran-blue: #2980b9;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --divider: rgba(0, 0, 0, 0.1);
+
+  /* ── الخطوط ──────────────────────────────────────────────────────── */
+  --font-ui: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  --font-quran: 'Amiri', 'Times New Roman', serif;
+
+  /* ── مقياس القارئ (تتحكم به أزرار تكبير/تصغير الخط) ─────────────── */
+  --font-scale: 1;
+  --font-scale-min: 0.8;
+  --font-scale-max: 1.4;
+  --font-scale-step: 0.1;
+
+  /* ── أحجام النص (مضروبة في مقياس القارئ) ────────────────────────── */
+  --size-h1: calc(clamp(28px, 4vw, 44px) * var(--font-scale));
+  --size-quran-main: calc(clamp(31px, 4vw, 46px) * var(--font-scale));
+  --size-quran-passage: calc(clamp(26px, 3.5vw, 35px) * var(--font-scale));
+  --size-part-heading: calc(clamp(27px, 3.5vw, 36px) * var(--font-scale));
+  --size-section-heading: calc(clamp(22px, 3vw, 28px) * var(--font-scale));
+  --size-sub-heading: calc(clamp(18px, 2.5vw, 21px) * var(--font-scale));
+  --size-body: calc(clamp(18px, 2vw, 19px) * var(--font-scale));
+  --size-quran-support: calc(clamp(22px, 3vw, 27px) * var(--font-scale));
+  --size-original: calc(clamp(17.5px, 2vw, 18px) * var(--font-scale));
+  --size-nav: calc(clamp(14px, 1.5vw, 16px) * var(--font-scale));
+
+  /* ── ارتفاعات الأسطر ─────────────────────────────────────────────── */
+  --leading-body: 1.8;
+  --leading-quran: 2.2;
+  --leading-original: 2;
+
+  /* ── المسافات ────────────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ── الحواف والظلال ──────────────────────────────────────────────── */
+  --radius-card: 1.25rem;
+  --radius-md: 0.75rem;
+  --radius-pill: 999px;
+
+  /* ── التخطيط ─────────────────────────────────────────────────────── */
+  --content-max: 64rem;          /* يقابل max-w-5xl */
+  --header-height: 140px;        /* يستخدم لإزاحة المراسي scroll-margin */
+}
+
+/* ── الألوان (الوضع الليلي — VisionOS) ─────────────────────────────── */
+.dark {
+  --bg-body: #000000;
+  --bg-surface: rgba(28, 28, 30, 0.7);
+  --bg-card: #1c1c1e;
+  --text-main: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --quran-red: #ff6961;
+  --quran-blue: #64d2ff;
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --divider: rgba(255, 255, 255, 0.15);
+}

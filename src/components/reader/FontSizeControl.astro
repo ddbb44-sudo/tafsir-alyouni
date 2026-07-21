@@ -1,0 +1,31 @@
+---
+import Button from '../ui/Button.astro';
+---
+<Button id="btn-font-dec" label="تصغير الخط">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+</Button>
+<Button id="btn-font-reset" label="استعادة الخط">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+</Button>
+<Button id="btn-font-inc" label="تكبير الخط">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+</Button>
+
+<script>
+  const root = document.documentElement;
+  const MIN = 0.8, MAX = 1.4, STEP = 0.1;
+  const read = () => {
+    const v = parseFloat(localStorage.getItem('fontScale') || '1');
+    return Number.isFinite(v) ? v : 1;
+  };
+  let scale = read();
+  const apply = (s: number) => {
+    scale = Math.min(MAX, Math.max(MIN, Math.round(s * 100) / 100));
+    root.style.setProperty('--font-scale', String(scale));
+    try { localStorage.setItem('fontScale', String(scale)); } catch (e) {}
+  };
+  apply(scale);
+  document.getElementById('btn-font-inc')?.addEventListener('click', () => apply(scale + STEP));
+  document.getElementById('btn-font-dec')?.addEventListener('click', () => apply(scale - STEP));
+  document.getElementById('btn-font-reset')?.addEventListener('click', () => apply(1));
+</script>

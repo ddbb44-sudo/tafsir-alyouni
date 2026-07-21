@@ -1,0 +1,14 @@
+---
+import { legacyAliasesFor } from '../../utils/anchors';
+/** قسم "النص كاملًا" — يحمل معرّف النسخ full-text-content الذي يعتمد عليه زر النسخ. */
+interface Props { id: string; title: string; legacy?: string[] }
+const { id, title, legacy = [] } = Astro.props;
+const aliases = legacyAliasesFor(id, legacy);
+---
+{aliases.map((a) => <span id={a} class="legacy-anchor" aria-hidden="true"></span>)}
+<section id={id} class="section-observer prose" aria-labelledby={`${id}-title`}>
+  <h2 id={`${id}-title`} class="part-heading">{title}</h2>
+  <div id="full-text-content" class="full-text">
+    <slot />
+  </div>
+</section>

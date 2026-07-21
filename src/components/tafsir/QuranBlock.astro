@@ -1,0 +1,6 @@
+---
+/** نص قرآني معروض ككتلة مستقلة (وسط الصفحة). */
+interface Props { variant?: 'passage' | 'support' | 'opening'; tone?: 'red' | 'main'; as?: string }
+const { variant = 'passage', tone = 'red', as: Tag = 'span' } = Astro.props;
+---
+<Tag class="quran-block" data-variant={variant} data-tone={tone}><slot /></Tag>

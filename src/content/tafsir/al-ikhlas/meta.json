@@ -1,0 +1,68 @@
+{
+  "title": "تفسير سورة الإخلاص",
+  "shortTitle": "الإخلاص",
+  "slug": "al-ikhlas",
+  "order": 3,
+  "source": "الشيخ سليمان العيوني",
+  "seoTitle": "تفسير سورة الإخلاص - الشيخ سليمان العيوني",
+  "seoDescription": "صفحة مرتّبة لتفسير سورة الإخلاص للشيخ سليمان العيوني: مختصر التفسير، والتصنيف الموضوعي، والنص كاملًا.",
+  "ogImage": null,
+  "legacyUrls": [
+    "https://ddbb44-sudo.github.io/Al-Ikhlas/"
+  ],
+  "sections": [
+    "summary",
+    "topics",
+    "full-text"
+  ],
+  "parts": {
+    "part-1": "مختصر التفسير",
+    "part-2": "التصنيف الموضوعي",
+    "part-3": "النص كاملًا"
+  },
+  "anchors": [
+    {
+      "id": "part-1",
+      "label": "البداية",
+      "legacy": [
+        "part1"
+      ]
+    },
+    {
+      "id": "cat-meanings",
+      "label": "المعاني",
+      "legacy": []
+    },
+    {
+      "id": "cat-virtues",
+      "label": "الفضائل",
+      "legacy": []
+    },
+    {
+      "id": "cat-benefits",
+      "label": "الفوائد",
+      "legacy": []
+    },
+    {
+      "id": "cat-revelation",
+      "label": "سبب النزول",
+      "legacy": []
+    },
+    {
+      "id": "cat-theology",
+      "label": "العقيدة",
+      "legacy": []
+    },
+    {
+      "id": "part-3",
+      "label": "النص كاملًا",
+      "legacy": [
+        "part3"
+      ]
+    }
+  ],
+  "features": {
+    "copyFullText": true,
+    "linguisticDetails": true
+  }
+}

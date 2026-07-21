@@ -1,0 +1,10 @@
+---
+/**
+ * فقرة منبّهة.
+ *  variant="default" → خط أزرق جانبي (نمط الفاتحة)
+ *  variant="quote"   → صندوق موسّط مائل للشعر والاقتباسات (نمط آية الكرسي)
+ */
+interface Props { emphasis?: 'default' | 'lg'; variant?: 'default' | 'quote' }
+const { emphasis = 'default', variant = 'default' } = Astro.props;
+---
+<blockquote class="note" data-emphasis={emphasis} data-variant={variant}><slot /></blockquote>

@@ -1,0 +1,40 @@
+---
+import { withBase } from '../../utils/paths';
+import { getTafsirPages } from '../../data/navigation';
+
+/**
+ * قائمة التنقل بين التفاسير.
+ * تحل محل ملف menu.js القديم الذي كان يُحمَّل من مستودع AL-fataha.
+ * المصدر: مجلدات src/content/tafsir — لا قائمة روابط مكتوبة يدويًا.
+ */
+interface Props { currentSlug?: string }
+const { currentSlug } = Astro.props;
+const pages = await getTafsirPages();
+---
+<div id="menu-overlay" class="menu-overlay"></div>
+<nav id="menu-panel" class="menu-panel" aria-label="التنقل بين التفاسير">
+  <button id="menu-close" type="button" class="menu-close" aria-label="إغلاق">&times;</button>
+  <h2>التنقل بين التفاسير</h2>
+  {pages.map((p) => (
+    <a href={withBase(`/tafsir/${p.slug}`)} aria-current={p.slug === currentSlug ? 'page' : undefined}>
+      {p.shortTitle}
+    </a>
+  ))}
+</nav>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const panel = document.getElementById('menu-panel');
+  const overlay = document.getElementById('menu-overlay');
+  const close = document.getElementById('menu-close');
+  const setOpen = (open: boolean) => {
+    panel?.classList.toggle('open', open);
+    overlay?.classList.toggle('open', open);
+    btn?.setAttribute('aria-expanded', String(open));
+    if (open) (close as HTMLElement | null)?.focus();
+  };
+  btn?.addEventListener('click', () => setOpen(true));
+  overlay?.addEventListener('click', () => setOpen(false));
+  close?.addEventListener('click', () => { setOpen(false); (btn as HTMLElement | null)?.focus(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+</script>

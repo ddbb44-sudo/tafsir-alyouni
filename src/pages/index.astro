@@ -1,0 +1,28 @@
+---
+import SiteShell from '../components/layout/SiteShell.astro';
+import Header from '../components/layout/Header.astro';
+import Container from '../components/ui/Container.astro';
+import Card from '../components/ui/Card.astro';
+import { getTafsirPages } from '../data/navigation';
+import { SITE } from '../data/site';
+import { withBase, absoluteUrl } from '../utils/paths';
+
+const pages = await getTafsirPages();
+const canonical = absoluteUrl('/', Astro.site);
+---
+<SiteShell title={SITE.title} description={SITE.description} canonical={canonical}>
+  <Header slot="header" title={SITE.title} />
+  <Container>
+    <h1 class="part-heading">{SITE.title}</h1>
+    <div class="prose">
+      {pages.map((p) => (
+        <Card>
+          <h2 class="topic-title">
+            <a href={withBase(`/tafsir/${p.slug}`)} style="text-decoration:none;color:inherit">{p.title}</a>
+          </h2>
+          <p>{p.seoDescription ?? ''}</p>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</SiteShell>

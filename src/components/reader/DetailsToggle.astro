@@ -1,0 +1,19 @@
+---
+import Button from '../ui/Button.astro';
+---
+<Button id="btn-toggle-details" label="فتح التفاصيل اللغوية" title="فتح/إغلاق التفاصيل اللغوية">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+</Button>
+
+<script>
+  const btn = document.getElementById('btn-toggle-details');
+  const all = () => document.querySelectorAll('details');
+  let open = localStorage.getItem('detailsOpen') === 'true';
+  const apply = (state: boolean) => {
+    all().forEach((d) => (state ? d.setAttribute('open', '') : d.removeAttribute('open')));
+    try { localStorage.setItem('detailsOpen', String(state)); } catch (e) {}
+    btn?.setAttribute('aria-pressed', String(state));
+  };
+  apply(open);
+  btn?.addEventListener('click', () => { open = !open; apply(open); });
+</script>

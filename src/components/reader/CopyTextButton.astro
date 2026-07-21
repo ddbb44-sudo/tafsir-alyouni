@@ -1,0 +1,32 @@
+---
+import Button from '../ui/Button.astro';
+interface Props { target?: string }
+const { target = 'full-text-content' } = Astro.props;
+---
+<Button id="btn-copy-text" label="نسخ النص كاملًا" class="is-copy" data-target={target}>
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+</Button>
+
+<script>
+  const btn = document.getElementById('btn-copy-text');
+  btn?.addEventListener('click', async () => {
+    const id = btn.getAttribute('data-target') || 'full-text-content';
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = (el as HTMLElement).innerText;
+    const done = () => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+      setTimeout(() => { btn.innerHTML = original; }, 2000);
+    };
+    try {
+      await navigator.clipboard.writeText(text);
+      done();
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { console.error('Copy failed', e); }
+      document.body.removeChild(ta);
+    }
+  });
+</script>

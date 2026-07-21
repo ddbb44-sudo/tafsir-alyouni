@@ -1,0 +1,147 @@
+/* typography.css — كل قواعد النص. المحتوى في ملفات .mdx لا يحمل أي تنسيق. */
+
+h1, h2, h3, h4 { font-weight: 700; margin: 0; }
+
+.page-title { font-size: var(--size-h1); }
+.part-heading {
+  font-size: var(--size-part-heading);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+/* عنوان فرعي داخل البطاقة — الشريط الأحمر الصغير قبله */
+.section-label {
+  font-size: var(--size-sub-heading);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.section-label::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1.2em;
+  background-color: var(--quran-red);
+  border-radius: 2px;
+}
+.section-label.is-first { margin-top: 0; }
+
+/* عنوان موضوع — أحمر مع خط سفلي */
+.topic-title {
+  font-size: var(--size-sub-heading);
+  font-weight: 700;
+  color: var(--quran-red);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--space-2);
+}
+
+/* النصوص القرآنية */
+.font-quran { font-family: var(--font-quran); line-height: var(--leading-quran); }
+
+.quran-block {
+  font-family: var(--font-quran);
+  line-height: var(--leading-quran);
+  color: var(--quran-red);
+  font-size: var(--size-quran-passage);
+  text-align: center;
+  margin-bottom: var(--space-6);
+  display: block;
+}
+.quran-block[data-tone="main"] { color: var(--text-main); }
+.quran-block[data-variant="support"] {
+  color: var(--quran-blue);
+  font-size: var(--size-quran-support);
+  text-align: start;
+  margin-bottom: 0;
+}
+.quran-block[data-variant="opening"] {
+  color: var(--text-main);
+  font-size: var(--size-quran-main);
+  text-align: center;
+  margin: 0;
+}
+
+/* اقتباس قرآني داخل السطر */
+.ayah {
+  font-family: var(--font-quran);
+  line-height: var(--leading-quran);
+  color: var(--quran-red);
+  font-size: 1.25em;
+}
+.ayah[data-tone="blue"] { color: var(--quran-blue); }
+.ayah[data-tone="main"] { color: var(--text-main); }
+.ayah[data-size="inherit"] { font-size: inherit; }
+
+/* نص الفقرات والقوائم */
+.prose p, .prose li { font-size: var(--size-body); }
+.prose p { margin: 0 0 var(--space-4); }
+.prose p:last-child { margin-bottom: 0; }
+
+.prose ul, .prose ol {
+  margin: 0 0 var(--space-4);
+  padding-inline-start: 0;
+  list-style-position: inside;
+}
+.prose ul { list-style-type: disc; }
+.prose ol { list-style-type: decimal; }
+.prose li { margin-bottom: var(--space-2); }
+.prose li:last-child { margin-bottom: 0; }
+.prose ul:last-child, .prose ol:last-child { margin-bottom: 0; }
+
+/* قائمة بلون ثانوي — مع إبقاء المصطلح الأساسي بلون النص الرئيسي */
+.prose [data-muted] { color: var(--text-secondary); }
+.prose [data-muted] strong { color: var(--text-main); }
+
+.prose strong { font-weight: 700; }
+
+/* اقتباس/تنبيه بخط أزرق جانبي */
+.note {
+  border-inline-start: 4px solid var(--quran-blue);
+  padding: var(--space-3) var(--space-4);
+  margin: var(--space-4) 0;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: var(--size-body);
+}
+.note[data-emphasis="lg"] { font-size: 1.125rem; font-style: italic; }
+
+/* اقتباس موسّط (شعر وأمثال) — نمط مأخوذ من صفحة آية الكرسي */
+.note[data-variant="quote"] {
+  border-inline-start: 0;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* قائمة بلا نقاط */
+.prose ul[data-plain] { list-style: none; }
+
+/* قسم النص الكامل */
+.full-text { font-size: var(--size-original); line-height: var(--leading-original); }
+.full-text p, .full-text li { font-size: var(--size-original); }
+.full-text > * + * { margin-top: var(--space-6); }
+
+/* لصيقة صغيرة */
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+/* نص ثانوي داخل السطر */
+.prose span[data-muted] { color: var(--text-secondary); font-size: 0.875em; }

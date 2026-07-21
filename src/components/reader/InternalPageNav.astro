@@ -1,0 +1,41 @@
+---
+/** شريط التنقل الداخلي بين أقسام الصفحة، مع تظليل القسم الحالي أثناء التمرير. */
+interface Props { anchors: { id: string; label: string }[] }
+const { anchors } = Astro.props;
+---
+<nav class="section-nav" aria-label="أقسام الصفحة">
+  {anchors.map((a, i) => (
+    <a href={`#${a.id}`} class={`nav-link${i === 0 ? ' active' : ''}`}>{a.label}</a>
+  ))}
+</nav>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.section-nav .nav-link'));
+  const ids = links.map((l) => l.getAttribute('href')!.slice(1));
+  const targets = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+
+  if (targets.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => {
+          const isActive = link.getAttribute('href') === `#${entry.target.id}`;
+          link.classList.toggle('active', isActive);
+          if (isActive) link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+      });
+    }, { root: null, rootMargin: '-150px 0px -60% 0px', threshold: 0 });
+    targets.forEach((t) => observer.observe(t));
+  }
+
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const id = link.getAttribute('href')!.slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, '', `#${id}`);
+    });
+  });
+</script>

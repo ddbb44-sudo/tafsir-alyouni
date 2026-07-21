@@ -1,0 +1,7 @@
+---
+/** عنوان موضوع أحمر بخط سفلي (يستخدم في التصنيف الموضوعي والنص الكامل). */
+interface Props { level?: 2 | 3; id?: string }
+const { level = 3, id } = Astro.props;
+const Tag = `h${level}`;
+---
+<Tag id={id} class="topic-title"><slot /></Tag>

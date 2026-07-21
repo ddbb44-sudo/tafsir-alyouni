@@ -1,0 +1,14 @@
+---
+import { withBase } from '../../utils/paths';
+interface Props {
+  prev?: { slug: string; shortTitle: string } | null;
+  next?: { slug: string; shortTitle: string } | null;
+}
+const { prev, next } = Astro.props;
+---
+{(prev || next) && (
+  <nav class="page-nav" aria-label="التنقل بين التفاسير">
+    {prev ? <a href={withBase(`/tafsir/${prev.slug}`)} rel="prev">→ {prev.shortTitle}</a> : <span></span>}
+    {next ? <a href={withBase(`/tafsir/${next.slug}`)} rel="next">{next.shortTitle} ←</a> : <span></span>}
+  </nav>
+)}

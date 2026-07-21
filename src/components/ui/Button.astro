@@ -1,0 +1,8 @@
+---
+interface Props { id?: string; label: string; title?: string; class?: string; type?: 'button' | 'submit'; [key: string]: any }
+// مهم: نمرر بقية الخصائص (مثل data-target) وإلا فُقدت بصمت
+const { id, label, title, class: cls = '', type = 'button', ...rest } = Astro.props;
+---
+<button id={id} type={type} class={`btn-icon ${cls}`.trim()} aria-label={label} title={title ?? label} {...rest}>
+  <slot />
+</button>

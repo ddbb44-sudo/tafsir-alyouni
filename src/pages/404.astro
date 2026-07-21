@@ -1,0 +1,14 @@
+---
+import SiteShell from '../components/layout/SiteShell.astro';
+import Header from '../components/layout/Header.astro';
+import Container from '../components/ui/Container.astro';
+import { SITE } from '../data/site';
+import { withBase, absoluteUrl } from '../utils/paths';
+---
+<SiteShell title={`الصفحة غير موجودة - ${SITE.title}`} description="الصفحة المطلوبة غير موجودة." canonical={absoluteUrl('/404', Astro.site)}>
+  <Header slot="header" title={SITE.title} />
+  <Container>
+    <h1 class="part-heading">الصفحة غير موجودة</h1>
+    <p style="text-align:center"><a href={withBase('/')}>العودة إلى الفهرس</a></p>
+  </Container>
+</SiteShell>

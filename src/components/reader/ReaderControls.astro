@@ -1,0 +1,21 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import FontSizeControl from './FontSizeControl.astro';
+import DetailsToggle from './DetailsToggle.astro';
+import CopyTextButton from './CopyTextButton.astro';
+import MenuButton from '../layout/MenuButton.astro';
+
+/** أدوات القارئ المشتركة. عطّل ما لا تحتاجه الصفحة عبر meta.json → features */
+interface Props { showDetailsToggle?: boolean; showCopy?: boolean }
+const { showDetailsToggle = false, showCopy = false } = Astro.props;
+---
+<div class="reader-controls" dir="ltr">
+  <ThemeToggle />
+  <span class="control-sep" aria-hidden="true"></span>
+  <FontSizeControl />
+  {showDetailsToggle && <span class="control-sep" aria-hidden="true"></span>}
+  {showDetailsToggle && <DetailsToggle />}
+  {showCopy && <CopyTextButton />}
+  <span class="control-sep" aria-hidden="true"></span>
+  <MenuButton />
+</div>

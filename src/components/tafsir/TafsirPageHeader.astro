@@ -1,0 +1,9 @@
+---
+/** ترويسة المحتوى داخل الصفحة (اسم التفسير والمصدر) — تظهر أعلى المقال. */
+interface Props { title: string; source: string }
+const { title, source } = Astro.props;
+---
+<div class="visually-hidden">
+  <h1>{title}</h1>
+  <p>{source}</p>
+</div>

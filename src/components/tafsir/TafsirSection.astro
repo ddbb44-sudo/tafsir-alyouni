@@ -1,0 +1,15 @@
+---
+import { legacyAliasesFor } from '../../utils/anchors';
+/**
+ * قسم رئيسي في صفحة التفسير (مختصر التفسير / التصنيف الموضوعي / النص كاملًا).
+ * ينشئ المرسى المعتمد + المراسي القديمة المخفية.
+ */
+interface Props { id: string; title: string; legacy?: string[]; class?: string }
+const { id, title, legacy = [], class: cls = '' } = Astro.props;
+const aliases = legacyAliasesFor(id, legacy);
+---
+{aliases.map((a) => <span id={a} class="legacy-anchor" aria-hidden="true"></span>)}
+<section id={id} class={`section-observer prose ${cls}`.trim()} aria-labelledby={`${id}-title`}>
+  <h2 id={`${id}-title`} class="part-heading">{title}</h2>
+  <slot />
+</section>

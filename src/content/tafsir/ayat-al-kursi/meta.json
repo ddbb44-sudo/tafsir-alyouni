@@ -1,0 +1,63 @@
+{
+  "title": "تفسير آية الكرسي",
+  "shortTitle": "آية الكرسي",
+  "slug": "ayat-al-kursi",
+  "order": 2,
+  "source": "الشيخ سليمان العيوني",
+  "seoTitle": "تفسير آية الكرسي - الشيخ سليمان العيوني",
+  "seoDescription": "صفحة مرتّبة لتفسير آية الكرسي للشيخ سليمان العيوني: مختصر التفسير، والتصنيف الموضوعي، والنص كاملًا.",
+  "ogImage": null,
+  "legacyUrls": [
+    "https://ddbb44-sudo.github.io/Al-Kursi/"
+  ],
+  "sections": [
+    "summary",
+    "topics",
+    "full-text"
+  ],
+  "parts": {
+    "part-1": "مختصر التفسير",
+    "part-2": "التصنيف الموضوعي",
+    "part-3": "النص كاملًا"
+  },
+  "anchors": [
+    {
+      "id": "part-1",
+      "label": "البداية",
+      "legacy": [
+        "part1"
+      ]
+    },
+    {
+      "id": "cat-meanings",
+      "label": "المعاني",
+      "legacy": []
+    },
+    {
+      "id": "cat-virtues",
+      "label": "الفضائل",
+      "legacy": []
+    },
+    {
+      "id": "cat-benefits",
+      "label": "الفوائد",
+      "legacy": []
+    },
+    {
+      "id": "cat-aqeedah",
+      "label": "العقيدة",
+      "legacy": []
+    },
+    {
+      "id": "part-3",
+      "label": "النص كاملًا",
+      "legacy": [
+        "part3"
+      ]
+    }
+  ],
+  "features": {
+    "copyFullText": true,
+    "linguisticDetails": true
+  }
+}

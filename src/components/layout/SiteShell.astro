@@ -1,0 +1,32 @@
+---
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import MenuDrawer from './MenuDrawer.astro';
+import { SITE } from '../../data/site';
+import '../../styles/global.css';
+
+/** الهيكل العام لكل صفحات الموقع: <html> + <head> + التذييل + قائمة التفاسير. */
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string | null;
+  currentSlug?: string;
+}
+const { title, description, canonical, ogImage, currentSlug } = Astro.props;
+---
+<!doctype html>
+<html lang={SITE.lang} dir={SITE.dir} class="light">
+  <head>
+    <BaseHead title={title} description={description} canonical={canonical} ogImage={ogImage} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
+    <slot name="header" />
+    <main id="main" class="site-main">
+      <slot />
+    </main>
+    <Footer />
+    <MenuDrawer currentSlug={currentSlug} />
+  </body>
+</html>

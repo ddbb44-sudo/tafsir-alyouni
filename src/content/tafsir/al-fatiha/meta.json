@@ -1,0 +1,68 @@
+{
+  "title": "تفسير سورة الفاتحة",
+  "shortTitle": "الفاتحة",
+  "slug": "al-fatiha",
+  "order": 1,
+  "source": "الشيخ سليمان العيوني",
+  "seoTitle": "تفسير سورة الفاتحة - الشيخ سليمان العيوني",
+  "seoDescription": "صفحة مرتّبة لتفسير سورة الفاتحة للشيخ سليمان العيوني: مختصر التفسير، والتصنيف الموضوعي، والنص كاملًا.",
+  "ogImage": null,
+  "legacyUrls": [
+    "https://ddbb44-sudo.github.io/AL-fataha/"
+  ],
+  "sections": [
+    "summary",
+    "topics",
+    "full-text"
+  ],
+  "parts": {
+    "part-1": "مختصر التفسير",
+    "part-2": "التصنيف الموضوعي",
+    "part-3": "النص كاملًا"
+  },
+  "anchors": [
+    {
+      "id": "part-1",
+      "label": "البداية",
+      "legacy": [
+        "part1"
+      ]
+    },
+    {
+      "id": "cat-meanings",
+      "label": "المعاني",
+      "legacy": []
+    },
+    {
+      "id": "cat-virtues",
+      "label": "الفضائل",
+      "legacy": []
+    },
+    {
+      "id": "cat-benefits",
+      "label": "الفوائد",
+      "legacy": []
+    },
+    {
+      "id": "cat-theology",
+      "label": "العقيدة",
+      "legacy": []
+    },
+    {
+      "id": "cat-fiqh",
+      "label": "الفقه",
+      "legacy": []
+    },
+    {
+      "id": "part-3",
+      "label": "النص كاملًا",
+      "legacy": [
+        "part3"
+      ]
+    }
+  ],
+  "features": {
+    "copyFullText": true,
+    "linguisticDetails": true
+  }
+}

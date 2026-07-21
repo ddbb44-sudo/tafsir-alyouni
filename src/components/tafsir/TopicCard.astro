@@ -1,0 +1,12 @@
+---
+import { legacyAliasesFor } from '../../utils/anchors';
+/** بطاقة موضوع في "التصنيف الموضوعي" — لها مرسى خاص يظهر في شريط التنقل. */
+interface Props { id: string; title: string; legacy?: string[] }
+const { id, title, legacy = [] } = Astro.props;
+const aliases = legacyAliasesFor(id, legacy);
+---
+{aliases.map((a) => <span id={a} class="legacy-anchor" aria-hidden="true"></span>)}
+<div class="card" id={id} data-variant="default">
+  <h3 class="topic-title">{title}</h3>
+  <slot />
+</div>

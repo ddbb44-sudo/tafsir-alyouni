@@ -1,0 +1,74 @@
+/* global.css — التهيئة العامة والتخطيط. لا ألوان مباشرة هنا: استخدم متغيرات tokens.css */
+@import './tokens.css';
+@import './typography.css';
+@import './reader.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: var(--leading-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.container {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+@media (min-width: 640px) { .container { padding-inline: var(--space-6); } }
+@media (min-width: 1024px) { .container { padding-inline: var(--space-8); } }
+
+.site-main {
+  padding-top: calc(var(--header-height) + var(--space-8));
+  padding-bottom: var(--space-16);
+}
+
+/* المراسي: إزاحة حتى لا يغطي الشريط الثابت العنوان */
+[id] { scroll-margin-top: var(--header-height); }
+
+/* مراسي التوافق مع الروابط القديمة (#part1 …) — غير مرئية ولا تشغل مساحة */
+.legacy-anchor {
+  display: block;
+  position: relative;
+  top: 0;
+  height: 0;
+  visibility: hidden;
+  scroll-margin-top: var(--header-height);
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; inset-inline-start: -9999px; top: 0; z-index: 100;
+  background: var(--bg-card); color: var(--text-main);
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+}
+.skip-link:focus { inset-inline-start: var(--space-4); top: var(--space-4); }
+
+:focus-visible { outline: 2px solid var(--quran-blue); outline-offset: 2px; }
+
+.visual-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--border-color), transparent);
+  margin: var(--space-16) 0;
+  border: 0;
+}

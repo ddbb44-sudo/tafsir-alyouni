@@ -1,0 +1,12 @@
+---
+/**
+ * التفاصيل اللغوية المطوية.
+ * يبقى عنصر <details> حقيقيًا حتى يتحكم فيه زر "فتح/إغلاق التفاصيل" في الشريط العلوي.
+ */
+interface Props { summary: string }
+const { summary } = Astro.props;
+---
+<details>
+  <summary>{summary}</summary>
+  <slot />
+</details>

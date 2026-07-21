@@ -1,0 +1,71 @@
+{
+  "title": "تفسير سورة الفلق",
+  "shortTitle": "الفلق",
+  "slug": "al-falaq",
+  "order": 5,
+  "source": "الشيخ سليمان العيوني",
+  "seoTitle": "تفسير سورة الفلق - الشيخ سليمان العيوني",
+  "seoDescription": "صفحة مرتّبة لتفسير سورة الفلق للشيخ سليمان العيوني: مختصر التفسير، والتصنيف الموضوعي، والنص كاملًا.",
+  "ogImage": null,
+  "legacyUrls": [
+    "https://ddbb44-sudo.github.io/Al-Falaq/"
+  ],
+  "sections": [
+    "summary",
+    "topics",
+    "full-text"
+  ],
+  "parts": {
+    "part-1": "مختصر التفسير",
+    "part-2": "التصنيف الموضوعي",
+    "part-3": "النص كاملًا"
+  },
+  "anchors": [
+    {
+      "id": "part-1",
+      "label": "البداية",
+      "legacy": [
+        "part1"
+      ]
+    },
+    {
+      "id": "cat-meanings",
+      "label": "المعاني",
+      "legacy": [
+        "sec-meanings"
+      ]
+    },
+    {
+      "id": "cat-virtues",
+      "label": "الفضائل",
+      "legacy": [
+        "sec-virtues"
+      ]
+    },
+    {
+      "id": "cat-benefits",
+      "label": "الفوائد",
+      "legacy": [
+        "sec-benefits"
+      ]
+    },
+    {
+      "id": "cat-revelation",
+      "label": "سبب النزول",
+      "legacy": [
+        "sec-revelation"
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "النص كاملًا",
+      "legacy": [
+        "part3"
+      ]
+    }
+  ],
+  "features": {
+    "copyFullText": true,
+    "linguisticDetails": true
+  }
+}

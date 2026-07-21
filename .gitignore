@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+npm-debug.log*
+
+# مخرجات مؤقتة لأدوات الترحيل (ليست جزءًا من المشروع)
+src/content/tafsir/*/_anchors.json
+src/content/tafsir/*/_draft-meta.json

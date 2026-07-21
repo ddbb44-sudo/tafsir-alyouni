@@ -1,0 +1,7 @@
+---
+/** عنوان فرعي داخل بطاقة (الشريط الأحمر). level=3|4 */
+interface Props { level?: 3 | 4; first?: boolean; id?: string }
+const { level = 4, first = false, id } = Astro.props;
+const Tag = `h${level}`;
+---
+<Tag id={id} class={`section-label${first ? ' is-first' : ''}`}><slot /></Tag>

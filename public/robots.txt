@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ddbb44-sudo.github.io/tafsir-alyouni/sitemap-index.xml

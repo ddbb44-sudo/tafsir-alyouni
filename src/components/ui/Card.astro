@@ -1,0 +1,5 @@
+---
+interface Props { id?: string; variant?: 'default' | 'compact' | 'quran'; class?: string }
+const { id, variant = 'default', class: cls = '' } = Astro.props;
+---
+<div id={id} class={`card ${cls}`.trim()} data-variant={variant}><slot /></div>

@@ -1,0 +1,27 @@
+{
+  "name": "tafsir-alyouni",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "تفاسير الشيخ سليمان العيوني — موقع موحّد",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "prebuild": "node scripts/lint-mdx.mjs",
+    "lint:mdx": "node scripts/lint-mdx.mjs",
+    "verify:content": "node scripts/verify-content.mjs",
+    "extract": "node scripts/extract-page.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.6.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.3"
+  }
+}

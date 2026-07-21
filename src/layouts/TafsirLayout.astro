@@ -1,0 +1,47 @@
+---
+import SiteShell from '../components/layout/SiteShell.astro';
+import Header from '../components/layout/Header.astro';
+import Container from '../components/ui/Container.astro';
+import PageNavigation from '../components/tafsir/PageNavigation.astro';
+import TafsirPageHeader from '../components/tafsir/TafsirPageHeader.astro';
+import { buildSeo } from '../utils/seo';
+import { absoluteUrl } from '../utils/paths';
+import { getNeighbours } from '../data/navigation';
+
+/**
+ * التخطيط المشترك لكل صفحات التفسير.
+ * أي تعديل على ترتيب الصفحة (الشريط العلوي، الحاوية، التنقل) يتم هنا فقط.
+ */
+interface Props { page: any }
+const { page } = Astro.props;
+
+const seo = buildSeo({
+  title: page.title,
+  description: page.seoDescription ?? `صفحة مرتبة لـ${page.title}.`,
+  seoTitle: page.seoTitle,
+  seoDescription: page.seoDescription,
+  ogImage: page.ogImage,
+});
+const canonical = absoluteUrl(`/tafsir/${page.slug}`, Astro.site);
+const { prev, next } = await getNeighbours(page.slug);
+---
+<SiteShell
+  title={seo.title}
+  description={seo.description}
+  canonical={canonical}
+  ogImage={seo.ogImage}
+  currentSlug={page.slug}
+>
+  <Header
+    slot="header"
+    title={page.title}
+    anchors={page.anchors}
+    showDetailsToggle={page.features?.linguisticDetails ?? false}
+    showCopy={page.features?.copyFullText ?? false}
+  />
+  <Container as="article">
+    <TafsirPageHeader title={page.title} source={page.source} />
+    <slot />
+    <PageNavigation prev={prev} next={next} />
+  </Container>
+</SiteShell>

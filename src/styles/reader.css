@@ -1,0 +1,257 @@
+/* reader.css — الشريط العلوي وأدوات القارئ والتنقل الداخلي */
+
+.glass-header {
+  position: fixed;
+  top: 0; inset-inline: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  min-height: 56px;
+}
+@media (min-width: 768px) { .header-bar { padding-inline: var(--space-8); } }
+
+.header-title {
+  font-size: var(--size-sub-heading);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.reader-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 0 0 auto;
+}
+
+.btn-icon {
+  padding: var(--space-2);
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-icon:hover { background-color: var(--border-color); }
+.btn-icon svg { width: 1.25rem; height: 1.25rem; }
+.btn-icon.is-copy svg { width: 1.5rem; height: 1.5rem; }
+
+.control-sep {
+  width: 1px;
+  height: 1.5rem;
+  background-color: var(--border-color);
+  margin-inline: var(--space-1);
+}
+
+/* شريط التنقل الداخلي */
+.section-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--border-color);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  font-size: var(--size-nav);
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--text-main);
+  background-color: var(--border-color);
+  font-weight: 600;
+}
+
+/* قائمة التنقل بين السور (تحل محل menu.js القديم) */
+/*
+ * ملاحظة: نستعمل هنا خصائص فيزيائية (right/left) عن قصد وليس المنطقية.
+ * اللوحة تنفتح من الحافة اليمنى فعليًا كما في الصفحات الأصلية، و translateX
+ * إزاحة فيزيائية دائمًا (+X يمينًا) بغض النظر عن اتجاه الصفحة.
+ */
+.menu-panel {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  z-index: 99999;
+  width: min(80vw, 286px);
+  padding: 70px var(--space-4) var(--space-6);
+  overflow-y: auto;
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.menu-panel.open { transform: translateX(0); }
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.menu-overlay.open { opacity: 1; visibility: visible; }
+
+.menu-panel h2 {
+  margin: 0 0 var(--space-4);
+  padding-bottom: var(--space-3);
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0.62;
+  border-bottom: 1px solid var(--border-color);
+}
+.menu-panel a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-1);
+  border-radius: 11px;
+  font-size: 16.5px;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.6;
+  color: inherit;
+  transition: background-color 0.17s ease;
+}
+.menu-panel a:hover { background-color: var(--border-color); }
+.menu-panel a[aria-current="page"] {
+  font-weight: 700;
+  color: var(--quran-red);
+  background-color: var(--border-color);
+}
+.menu-close {
+  position: absolute;
+  top: var(--space-4); left: var(--space-4);
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; line-height: 1;
+  cursor: pointer; border: 0; border-radius: var(--radius-pill);
+  background: transparent; color: inherit; opacity: 0.6;
+}
+.menu-close:hover { background-color: var(--border-color); }
+
+/* البطاقات */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card[data-variant="compact"] { padding: var(--space-6); }
+.card[data-variant="quran"] {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-body) 100%);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+.card:last-child { margin-bottom: 0; }
+
+/*
+ * شريط علوي داخل البطاقة يحمل الآية.
+ * البطاقة الحاوية تُلغي حشوها العلوي ليمتد الشريط إلى الحواف.
+ */
+.card:has(> .card-banner:first-child) { padding: 0; overflow: hidden; }
+.card:has(> .card-banner:first-child) > :not(.card-banner) {
+  padding-inline: var(--space-8);
+}
+.card:has(> .card-banner:first-child) > :last-child { padding-bottom: var(--space-8); }
+
+.card-banner {
+  background-color: var(--bg-body);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-6);
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+/* التفاصيل اللغوية */
+details {
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+  margin-top: var(--space-4);
+}
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: var(--size-sub-heading);
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "▼"; font-size: 0.8em; transition: transform 0.3s; }
+details[open] summary::after { transform: rotate(180deg); }
+details[open] summary {
+  color: var(--text-main);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--space-2);
+}
+
+/* الترويسة والتذييل */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--size-nav);
+}
+.site-footer a { color: inherit; }
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-color);
+}
+.page-nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+.page-nav a:hover { background-color: var(--border-color); }
