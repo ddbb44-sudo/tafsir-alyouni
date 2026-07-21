@@ -1,6 +1,5 @@
 ---
 import { SITE } from '../../data/site';
-import ThemeScript from '../reader/ThemeScript.astro';
 
 interface Props {
   title: string;
@@ -13,6 +12,8 @@ const ogUrl = ogImage ? new URL(ogImage, Astro.site ?? 'https://ddbb44-sudo.gith
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- المظهر يتبع الجهاز فقط؛ هذا يجعل عناصر المتصفح الأصلية تتبعه أيضًا -->
+<meta name="color-scheme" content="light dark" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
@@ -32,5 +33,3 @@ const ogUrl = ogImage ? new URL(ogImage, Astro.site ?? 'https://ddbb44-sudo.gith
   href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
   rel="stylesheet"
 />
-
-<ThemeScript />

@@ -16,7 +16,7 @@ interface Props {
 const { title, description, canonical, ogImage, currentSlug } = Astro.props;
 ---
 <!doctype html>
-<html lang={SITE.lang} dir={SITE.dir} class="light">
+<html lang={SITE.lang} dir={SITE.dir}>
   <head>
     <BaseHead title={title} description={description} canonical={canonical} ogImage={ogImage} />
   </head>

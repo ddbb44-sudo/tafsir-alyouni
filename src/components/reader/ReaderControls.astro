@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
 import FontSizeControl from './FontSizeControl.astro';
 import DetailsToggle from './DetailsToggle.astro';
 import CopyTextButton from './CopyTextButton.astro';
@@ -10,8 +9,6 @@ interface Props { showDetailsToggle?: boolean; showCopy?: boolean }
 const { showDetailsToggle = false, showCopy = false } = Astro.props;
 ---
 <div class="reader-controls" dir="ltr">
-  <ThemeToggle />
-  <span class="control-sep" aria-hidden="true"></span>
   <FontSizeControl />
   {showDetailsToggle && <span class="control-sep" aria-hidden="true"></span>}
   {showDetailsToggle && <DetailsToggle />}

@@ -41,7 +41,7 @@ npm run verify:content -- ../_sources/AL-fataha/index.html al-fatiha
 | التذييل | `src/components/layout/Footer.astro` | — |
 | قائمة التنقل بين السور | `src/components/layout/MenuDrawer.astro` | — |
 | أزرار حجم الخط | `src/components/reader/FontSizeControl.astro` | — |
-| زر الوضع الليلي | `src/components/reader/ThemeToggle.astro` + `ThemeScript.astro` | — |
+| ألوان الوضع الليلي | `src/styles/tokens.css` — كتلة `@media (prefers-color-scheme: dark)` | — |
 | شريط أقسام الصفحة | `src/components/reader/InternalPageNav.astro` | — |
 | ترتيب الصفحة ككل | `src/layouts/TafsirLayout.astro` | — |
 | بيانات صفحة واحدة (عنوان، مراسي، SEO) | `src/content/tafsir/<slug>/meta.json` | — |
