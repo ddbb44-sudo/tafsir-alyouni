@@ -1,0 +1,76 @@
+{
+  "title": "تفسير سورة النصر",
+  "shortTitle": "النصر",
+  "slug": "an-nasr",
+  "order": 8,
+  "source": "الشيخ سليمان العيوني",
+  "seoTitle": "تفسير سورة النصر - الشيخ سليمان العيوني",
+  "seoDescription": "صفحة مرتّبة لتفسير سورة النصر للشيخ سليمان العيوني: مختصر التفسير، والتصنيف الموضوعي، والنص كاملًا.",
+  "ogImage": null,
+  "legacyUrls": [],
+  "sections": [
+    "summary",
+    "topics",
+    "full-text"
+  ],
+  "parts": {
+    "part-1": "مختصر التفسير",
+    "part-2": "التصنيف الموضوعي",
+    "part-3": "النص كاملًا"
+  },
+  "anchors": [
+    {
+      "id": "part-1",
+      "label": "البداية",
+      "legacy": [
+        "part1"
+      ]
+    },
+    {
+      "id": "cat-meanings",
+      "label": "المعاني",
+      "legacy": [
+        "sec-meanings"
+      ]
+    },
+    {
+      "id": "cat-virtues",
+      "label": "الفضائل",
+      "legacy": [
+        "sec-virtues"
+      ]
+    },
+    {
+      "id": "cat-benefits",
+      "label": "الفوائد",
+      "legacy": [
+        "sec-benefits"
+      ]
+    },
+    {
+      "id": "cat-revelation",
+      "label": "سبب النزول",
+      "legacy": [
+        "sec-revelation"
+      ]
+    },
+    {
+      "id": "cat-theology",
+      "label": "العقيدة",
+      "legacy": [
+        "sec-theology"
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "النص كاملًا",
+      "legacy": [
+        "part3"
+      ]
+    }
+  ],
+  "features": {
+    "copyFullText": true,
+    "linguisticDetails": true
+  }
+}
