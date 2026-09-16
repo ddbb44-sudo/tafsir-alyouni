@@ -1,0 +1,69 @@
+{
+  "title": "تفسير سورة الماعون",
+  "shortTitle": "الماعون",
+  "slug": "al-maun",
+  "order": 11,
+  "source": "الشيخ سليمان العيوني",
+  "seoTitle": "تفسير سورة الماعون - الشيخ سليمان العيوني",
+  "seoDescription": "صفحة مرتّبة لتفسير سورة الماعون للشيخ سليمان العيوني: مختصر التفسير، والتصنيف الموضوعي، والنص كاملًا.",
+  "ogImage": null,
+  "legacyUrls": [],
+  "sections": [
+    "summary",
+    "topics",
+    "full-text"
+  ],
+  "parts": {
+    "part-1": "مختصر التفسير",
+    "part-2": "التصنيف الموضوعي",
+    "part-3": "النص كاملًا"
+  },
+  "anchors": [
+    {
+      "id": "part-1",
+      "label": "البداية",
+      "legacy": [
+        "part1"
+      ]
+    },
+    {
+      "id": "cat-meanings",
+      "label": "المعاني",
+      "legacy": [
+        "sec-meanings"
+      ]
+    },
+    {
+      "id": "cat-benefits",
+      "label": "الفوائد",
+      "legacy": [
+        "sec-benefits"
+      ]
+    },
+    {
+      "id": "cat-theology",
+      "label": "العقيدة",
+      "legacy": [
+        "sec-theology"
+      ]
+    },
+    {
+      "id": "cat-fiqh",
+      "label": "الفقه",
+      "legacy": [
+        "sec-fiqh"
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "النص كاملًا",
+      "legacy": [
+        "part3"
+      ]
+    }
+  ],
+  "features": {
+    "copyFullText": true,
+    "linguisticDetails": true
+  }
+}
