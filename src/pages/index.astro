@@ -1,6 +1,7 @@
 ---
 import SiteShell from '../components/layout/SiteShell.astro';
 import Header from '../components/layout/Header.astro';
+import PasswordGate from '../components/layout/PasswordGate.astro';
 import Container from '../components/ui/Container.astro';
 import Card from '../components/ui/Card.astro';
 import { getTafsirPages } from '../data/navigation';
@@ -12,6 +13,7 @@ const canonical = absoluteUrl('/', Astro.site);
 ---
 <SiteShell title={SITE.title} description={SITE.description} canonical={canonical}>
   <Header slot="header" title={SITE.title} />
+  <PasswordGate code="5566" />
   <Container>
     <h1 class="part-heading">{SITE.title}</h1>
     <div class="prose">
